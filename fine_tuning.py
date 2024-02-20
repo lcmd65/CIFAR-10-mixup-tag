@@ -1,7 +1,4 @@
 import torch
-from torchvision.datasets import CIFAR100, CIFAR10
-from torch.utils.data import Dataset
-import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision.transforms as transforms
@@ -9,66 +6,6 @@ import torchvision.datasets as datasets
 from torchvision.datasets import CIFAR100
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Subset, random_split
-import optuna
-
-
-class FilteredCIFAR100(Dataset):
-    def __init__(self, cifdataset, cifar10_labels, transform=None):
-        self.data = []
-        self.targets = []
-        self.transform = transform
-
-        # Filter out samples whose labels are not present in CIFAR-10
-        for idx, (image, label) in enumerate(cifdataset):
-            if label not in cifar10_labels:
-                self.data.append(image)
-                self.targets.append(label)
-
-    def __getitem__(self, index):
-        image, label = self.data[index], self.targets[index]
-
-        if self.transform:
-            image = self.transform(image)
-
-        return image, label
-
-    def __len__(self):
-        return len(self.data)
-
-
-# Define transformations
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
-
-# Load CIFAR-100 and CIFAR-10 datasets
-cifar100_dataset = CIFAR100(root='./datafil', train=True, download=True)
-cifar100_test = CIFAR100(root='./datafil', train=False, download=True)
-cifar10_dataset = CIFAR10(root='./datafil', train=True, download=True)
-
-# Get the labels present in CIFAR-10
-cifar10_labels = set(cifar10_dataset.targets)
-
-# Create FilteredCIFAR100 datasets with transformations
-train_dataset = FilteredCIFAR100(
-    cifar100_dataset, cifar10_labels, transform=transform)
-test_dataset = FilteredCIFAR100(
-    cifar100_test, cifar10_labels, transform=transform)
-# Split the dataset into training and validation sets (80% training, 20% validation)
-train_size = int(0.2 * len(train_dataset))
-val_size = len(train_dataset) - train_size
-train_dataset, _ = random_split(train_dataset, [train_size, val_size])
-
-# Create data loaders for training and validation
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
-
-print("Number of samples in filtered CIFAR-100 dataset:",
-      len(train_dataset))
-
-print("Number of samples in filtered CIFAR-100 dataset test:",
-      len(test_dataset))
 
 
 class Network(nn.Module):
@@ -101,7 +38,6 @@ class Network(nn.Module):
 
         return output
 
-
 # Load pre-trained model
 # Load the model's state dictionary
 model = Network()
@@ -112,7 +48,28 @@ num_ftrs = model.fc1.in_features
 # Modify last layer for 100 classes in CIFAR-100
 model.fc1 = nn.Linear(num_ftrs, 100)
 
+# Define CIFAR-100 dataset and data loaders
+transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+])
 
+# Load CIFAR-100 dataset
+full_train_dataset = CIFAR100(
+    root='./dataset2', train=True, download=True, transform=transform)
+
+# Split the dataset into training and validation sets (80% training, 20% validation)
+train_size = int(0.8 * len(full_train_dataset))
+val_size = len(full_train_dataset) - train_size
+train_dataset, _ = random_split(full_train_dataset, [train_size, val_size])
+
+# Create data loaders for training and validation
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+
+# Load test dataset
+test_dataset = CIFAR100(root='./dataset2', train=False,
+                        download=True, transform=transform)
+test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 # Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
@@ -120,10 +77,9 @@ optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
 
 def saveModel():
-    path = "./model/model_case3.pth"
+    path = "./model/model_2.pth"
     torch.save(model.state_dict(), path)
-
-
+    
 def fine_tuning(num_epochs):
     # Fine-tuning loop
     for epoch in range(num_epochs):
@@ -136,8 +92,7 @@ def fine_tuning(num_epochs):
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
-        print(
-            f"Epoch {epoch+1}, Training Loss: {running_loss/len(train_loader)}")
+        print(f"Epoch {epoch+1}, Training Loss: {running_loss/len(train_loader)}")
 
         # Validation phase (compute test accuracy)
         correct = 0
@@ -156,12 +111,3 @@ def fine_tuning(num_epochs):
 if __name__ == "__main__":
     fine_tuning(10)
     saveModel()
-
-
-# Specify the Learning Rate Search Space:
-trial = study.ask()
-learning_rate = trial.suggest_loguniform("learning_rate", 1e-5, 1e-1)
-
-# run optimize
-study = optuna.create_study(direction="minimize")
-study.optimize(objective_function, n_trials=100)
