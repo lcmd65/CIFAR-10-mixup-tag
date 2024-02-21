@@ -1,0 +1,68 @@
+[I 2024-02-20 16:15:47,756] A new study created in memory with name: no-name-78cfdd7c-7198-49d8-a0f8-67746c519c13
+Files already downloaded and verified
+Files already downloaded and verified
+Epoch 1, Training Loss: 1.3428, Validation Accuracy: 62.41
+Epoch 2, Training Loss: 0.9786, Validation Accuracy: 67.72
+Epoch 3, Training Loss: 0.8400, Validation Accuracy: 69.38
+Epoch 4, Training Loss: 0.7639, Validation Accuracy: 71.75
+Epoch 5, Training Loss: 0.7091, Validation Accuracy: 72.41
+Epoch 6, Training Loss: 0.6567, Validation Accuracy: 72.41
+Epoch 7, Training Loss: 0.6227, Validation Accuracy: 73.23
+Epoch 8, Training Loss: 0.5800, Validation Accuracy: 72.62
+Epoch 9, Training Loss: 0.5461, Validation Accuracy: 72.55
+Epoch 10, Training Loss: 0.5158, Validation Accuracy: 72.76
+[I 2024-02-20 16:26:31,434] Trial 0 finished with value: 72.76 and parameters: {'learning_rate': 0.0012575973865751417}. Best is trial 0 with value: 72.76.
+Files already downloaded and verified
+Files already downloaded and verified
+Epoch 1, Training Loss: 1.4097, Validation Accuracy: 57.84
+Epoch 2, Training Loss: 1.0805, Validation Accuracy: 63.01
+Epoch 3, Training Loss: 0.9333, Validation Accuracy: 67.77
+Epoch 4, Training Loss: 0.8495, Validation Accuracy: 68.92
+Epoch 5, Training Loss: 0.7879, Validation Accuracy: 69.02
+Epoch 6, Training Loss: 0.7406, Validation Accuracy: 70.41
+Epoch 7, Training Loss: 0.6979, Validation Accuracy: 70.90
+Epoch 8, Training Loss: 0.6669, Validation Accuracy: 71.07
+Epoch 9, Training Loss: 0.6351, Validation Accuracy: 72.05
+Epoch 10, Training Loss: 0.6051, Validation Accuracy: 72.39
+[I 2024-02-20 16:37:23,089] Trial 1 finished with value: 72.39 and parameters: {'learning_rate': 0.0002650522070286984}. Best is trial 0 with value: 72.76.
+Files already downloaded and verified
+Files already downloaded and verified
+Epoch 1, Training Loss: 1.3604, Validation Accuracy: 58.83
+Epoch 2, Training Loss: 1.0327, Validation Accuracy: 65.42
+Epoch 3, Training Loss: 0.8998, Validation Accuracy: 66.84
+Epoch 4, Training Loss: 0.8235, Validation Accuracy: 69.03
+Epoch 5, Training Loss: 0.7628, Validation Accuracy: 69.49
+Epoch 6, Training Loss: 0.7159, Validation Accuracy: 70.65
+Epoch 7, Training Loss: 0.6789, Validation Accuracy: 71.05
+Epoch 8, Training Loss: 0.6386, Validation Accuracy: 70.79
+Epoch 9, Training Loss: 0.6095, Validation Accuracy: 71.15
+Epoch 10, Training Loss: 0.5804, Validation Accuracy: 70.83
+[I 2024-02-20 16:48:06,817] Trial 2 finished with value: 70.83 and parameters: {'learning_rate': 0.0003409978579650156}. Best is trial 0 with value: 72.76.
+Files already downloaded and verified
+Files already downloaded and verified
+Epoch 1, Training Loss: 1.5911, Validation Accuracy: 53.87
+Epoch 2, Training Loss: 1.1826, Validation Accuracy: 61.30
+Epoch 3, Training Loss: 1.0105, Validation Accuracy: 65.82
+Epoch 4, Training Loss: 0.9047, Validation Accuracy: 67.36
+Epoch 5, Training Loss: 0.8268, Validation Accuracy: 68.76
+Epoch 6, Training Loss: 0.7732, Validation Accuracy: 69.81
+Epoch 7, Training Loss: 0.7267, Validation Accuracy: 68.86
+Epoch 8, Training Loss: 0.6856, Validation Accuracy: 70.45
+Epoch 9, Training Loss: 0.6485, Validation Accuracy: 70.32
+Epoch 10, Training Loss: 0.6162, Validation Accuracy: 70.72
+[I 2024-02-20 16:58:59,978] Trial 3 finished with value: 70.72 and parameters: {'learning_rate': 0.007182485343913393}. Best is trial 0 with value: 72.76.
+Files already downloaded and verified
+Files already downloaded and verified
+Epoch 1, Training Loss: 1.9456, Validation Accuracy: 38.23
+Epoch 2, Training Loss: 1.6322, Validation Accuracy: 43.35
+Epoch 3, Training Loss: 1.5032, Validation Accuracy: 46.33
+Epoch 4, Training Loss: 1.4260, Validation Accuracy: 48.55
+Epoch 5, Training Loss: 1.3749, Validation Accuracy: 50.63
+Epoch 6, Training Loss: 1.3303, Validation Accuracy: 52.07
+Epoch 7, Training Loss: 1.2915, Validation Accuracy: 53.58
+Epoch 8, Training Loss: 1.2570, Validation Accuracy: 54.37
+Epoch 9, Training Loss: 1.2235, Validation Accuracy: 55.52
+Epoch 10, Training Loss: 1.1983, Validation Accuracy: 56.23
+[I 2024-02-21 05:12:49,337] Trial 4 finished with value: 56.23 and parameters: {'learning_rate': 1.1339184882341015e-05}. Best is trial 0 with value: 72.76.
+Best learning rate: 0.0012575973865751417
+Best validation accuracy: 72.76
