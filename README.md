@@ -1,6 +1,4 @@
-[text](../Downloads/pytorch-cifar-10-master/LICENSE) [text](../Downloads/pytorch-cifar-10-master/main.py) [text](../Downloads/pytorch-cifar-10-master/models) [text](../Downloads/pytorch-cifar-10-master/mynet_new.py) [text](../Downloads/pytorch-cifar-10-master/README.md) [text](../Downloads/pytorch-cifar-10-master/utils.py)
-
-Title: Train CIFAR-10 Image Classification with PyTorch
+Train CIFAR-10 Image Classification with PyTorch
 
 This script trains a convolutional neural network (CNN) on the CIFAR-10 image classification dataset using PyTorch.
 
@@ -37,29 +35,29 @@ Loads the CIFAR-10 dataset using torchvision.datasets.
 Applies data transformations (e.g., ToTensor, normalization) using torchvision.transforms.
 Defines batch sizes and data loaders for training and testing.
 Network Architecture:
-Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
-Includes BatchNorm layers for regularization.
+    Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
+    Includes BatchNorm layers for regularization.
 Training Process:
-Defines Adam optimizer and CrossEntropy loss function.
-Implements a training loop that iterates over batches, calculates loss, updates parameters, and prints progress.
-Saves the model with the highest test accuracy.
+    Defines Adam optimizer and CrossEntropy loss function.
+    Implements a training loop that iterates over batches, calculates loss, updates parameters, and prints progress.
+    Saves the model with the highest test accuracy.
 Evaluation and Visualization:
-Calculates and reports test accuracy.
-Provides functions to:
-Visualize predictions on a batch of test images.
-Analyze performance per class.
+    Calculates and reports test accuracy.
+    Provides functions to:
+    Visualize predictions on a batch of test images.
+    Analyze performance per class.
 Customization:
 
-Modify hyperparameters (learning rate, epochs, architecture) to improve performance.
-Explore advanced data augmentation techniques.
-Implement early stopping to prevent overfitting.
+    Modify hyperparameters (learning rate, epochs, architecture) to improve performance.
+    Explore advanced data augmentation techniques.
+    Implement early stopping to prevent overfitting.
 Further Enhancements:
 
-Consider hyperparameter tuning using libraries like Optuna.
-Analyze training behavior with tensorboard pvisualizations.
-Experiment with different architectures and techniques.
+    Consider hyperparameter tuning using libraries like Optuna.
+    Analyze training behavior with tensorboard pvisualizations.
+    Experiment with different architectures and techniques.
 Author:
-[Your Name/Contact Information (optional)]
+    LCMD
 
 Additional Notes:
 
