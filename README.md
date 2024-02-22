@@ -1,4 +1,4 @@
-Train CIFAR-10 Image Classification with PyTorch
+# Train CIFAR-10 Image Classification with PyTorch and Tuning for CIFAR-100
 
 This script trains a convolutional neural network (CNN) on the CIFAR-10 image classification dataset using PyTorch.
 
