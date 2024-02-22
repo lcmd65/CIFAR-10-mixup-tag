@@ -34,9 +34,9 @@ Defines batch sizes and data loaders for training and testing.
 
 Network Architecture:
 
-    - Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
-    
-    - Includes BatchNorm layers for regularization.
+- Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
+
+- Includes BatchNorm layers for regularization.
 
 Training Process:
     - Defines Adam optimizer and CrossEntropy loss function.
