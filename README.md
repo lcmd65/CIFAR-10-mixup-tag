@@ -33,8 +33,9 @@ Applies data transformations (e.g., ToTensor, normalization) using torchvision.t
 Defines batch sizes and data loaders for training and testing.
 
 Network Architecture:
-    - Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
 
+    - Defines a CNN architecture with convolutional layers, activation functions (ReLU), pooling layers, and a final fully connected layer.
+    
     - Includes BatchNorm layers for regularization.
 
 Training Process:
