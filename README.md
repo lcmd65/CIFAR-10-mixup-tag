@@ -2,7 +2,7 @@
 
 This script trains a convolutional neural network (CNN) on the CIFAR-10 image classification dataset using PyTorch.
 
-Prerequisites:
+## Requirements
 
     Python 3.6+
     PyTorch
