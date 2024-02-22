@@ -11,13 +11,11 @@ Prerequisites:
     
 Instructions:
 
-Install dependencies:
-
-Bash
+## Install dependencies:
+    Bash
     pip install torch torchvision matplotlib
 
-Run the script:
-
+## Run the script:
     Bash
     python script.py
 
@@ -28,7 +26,6 @@ Defines a CNN architecture with convolutional, pooling, and fully connected laye
 Trains the model using Adam optimizer and CrossEntropy loss.
 Evaluates and reports test accuracy, with the option to save the best performing model.
 Includes functions to visualize predictions on a batch of images and analyze performance per class.
-Code Breakdown:
 
 Data Loading and Preprocessing:
 Loads the CIFAR-10 dataset using torchvision.datasets.
